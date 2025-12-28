@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "createpoopindustry:fluid/biogas_flow"
+    },
+    {
+      "type": "single",
+      "resource": "createpoopindustry:fluid/biogas_still"
+    }
+  ]
+}

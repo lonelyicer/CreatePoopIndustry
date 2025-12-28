@@ -13,6 +13,4 @@ object AllFluids {
         .lang("Biogas")
         .tag(AllTags.AllFluidTags.BIOGAS.tag)
         .register()
-
-    fun register() {}
 }

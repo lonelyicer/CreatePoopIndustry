@@ -12,6 +12,4 @@ object AllItems {
     val FERMENTATION_TANK_CONTROLLER: ItemEntry<FermentationTankControllerItem> = REGISTRATE
         .item("fermentation_tank_controller", ::FermentationTankControllerItem)
         .register()
-
-    fun register() {}
 }

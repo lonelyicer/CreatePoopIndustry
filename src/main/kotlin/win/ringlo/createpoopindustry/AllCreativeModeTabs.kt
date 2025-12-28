@@ -26,7 +26,7 @@ object AllCreativeModeTabs {
     }
 
     @Internal
-    fun register(modEventBus: IEventBus?) {
+    fun register(modEventBus: IEventBus) {
         REGISTER.register(modEventBus)
     }
 }

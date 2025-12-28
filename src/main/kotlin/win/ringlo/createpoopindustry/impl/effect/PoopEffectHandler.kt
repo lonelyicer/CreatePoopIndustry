@@ -15,7 +15,8 @@ object PoopEffectHandler : OpenPipeEffectHandler {
         area: AABB,
         fluid: FluidStack
     ) {
-        if (level.gameTime % 5 != 0L) return
+        if (level.gameTime % 5 != 0L)
+            return
 
         val entities = level.getEntitiesOfClass(
             LivingEntity::class.java,

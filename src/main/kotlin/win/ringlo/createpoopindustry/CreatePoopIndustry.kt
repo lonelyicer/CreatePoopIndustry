@@ -9,11 +9,13 @@ import net.createmod.catnip.lang.FontHelper
 import net.minecraft.resources.ResourceKey
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.Item
+import net.neoforged.bus.api.EventPriority
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 import org.slf4j.Logger
+import win.ringlo.createpoopindustry.infrastructure.data.CreatePoopIndustryDatagen
 
 @Mod(CreatePoopIndustry.MOD_ID)
 class CreatePoopIndustry(modEventBus: IEventBus, modContainer: ModContainer) {
@@ -22,7 +24,7 @@ class CreatePoopIndustry(modEventBus: IEventBus, modContainer: ModContainer) {
         private val LOGGER: Logger = LogUtils.getLogger()
         private val REGISTRATE: CreateRegistrate = CreateRegistrate.create(MOD_ID)
                 .defaultCreativeTab(null as ResourceKey<CreativeModeTab?>?)
-                .setTooltipModifierFactory { item: Item? ->
+                .setTooltipModifierFactory { item ->
                     ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
                         .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
                 }
@@ -38,12 +40,15 @@ class CreatePoopIndustry(modEventBus: IEventBus, modContainer: ModContainer) {
         REGISTRATE.registerEventListeners(modEventBus)
 
         AllCreativeModeTabs.register(modEventBus)
-        AllItems.register()
-        AllFluids.register()
-        AllBlocks.register()
-        AllBlockEntityTypes.register()
+
+        AllItems
+        AllFluids
+        AllBlocks
+        AllBlockEntityTypes
 
         modEventBus.addListener(this::init)
+        modEventBus.addListener(EventPriority.HIGHEST, CreatePoopIndustryDatagen::gatherDataHighPriority)
+        modEventBus.addListener(EventPriority.LOWEST, CreatePoopIndustryDatagen::gatherData)
     }
 
     fun init(event: FMLCommonSetupEvent) {

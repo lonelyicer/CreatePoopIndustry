@@ -25,3 +25,4 @@ run-data
 repo
 .vscode
 .kotlin
+src/generated/resources/.cache

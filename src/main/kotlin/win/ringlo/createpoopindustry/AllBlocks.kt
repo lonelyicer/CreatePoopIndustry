@@ -20,6 +20,4 @@ object AllBlocks {
         .transform(pickaxeOnly())
         .blockstate { ctx, prov -> FermentationTankGenerator().generate(ctx, prov) }
         .register()
-    
-    fun register() {}
 }

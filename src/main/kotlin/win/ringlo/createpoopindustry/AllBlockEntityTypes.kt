@@ -11,6 +11,4 @@ object AllBlockEntityTypes {
         .blockEntity("fermentation_tank", ::FermentationTankBlockEntity)
         .validBlock(AllBlocks.FERMENTATION_TANK)
         .register()
-    
-    fun register() {}
 }

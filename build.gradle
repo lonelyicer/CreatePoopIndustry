@@ -67,13 +67,13 @@ dependencies {
     implementation "thedarkcolour:kotlinforforge-neoforge:${kff_version}"
     implementation "com.altnoir.poopsky:PoopSkyMod:${ps_version}"
     implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
-    implementation("net.createmod.ponder:Ponder-NeoForge-${minecraft_version}:${ponder_version}")
+    implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
     compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
 
-    compileOnly("mezz.jei:jei-1.21-neoforge-api:${jei_version}")
-    runtimeOnly("mezz.jei:jei-1.21-neoforge:${jei_version}")
+    compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
+    runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 }
 
 tasks.withType(ProcessResources).configureEach {

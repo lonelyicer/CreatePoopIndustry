@@ -11,12 +11,18 @@ tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }
 
+minecraft {
+    accessTransformers {
+        file('src/main/resources/META-INF/accesstransformer.cfg')
+    }
+}
+
 version = mod_version
 group = mod_group_id
 
 repositories {
-    mavenLocal()
-    maven { url = 'https://thedarkcolour.github.io/KotlinForForge/'}
+    maven { url = "https://altnoir.github.io/PoopSkyMod/repo/" }
+    maven { url = "https://thedarkcolour.github.io/KotlinForForge/" }
     maven { url = "https://maven.createmod.net" }
     maven { url = "https://maven.ithundxr.dev/snapshots" }
     maven { url = "https://maven.blamejared.com/" }

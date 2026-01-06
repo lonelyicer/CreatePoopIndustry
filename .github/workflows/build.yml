@@ -2,6 +2,8 @@ name: Build
 
 on:
   push:
+    branches:
+      - "neoforge/**"
     branches-ignore:
       - "*-dev"
   pull_request:

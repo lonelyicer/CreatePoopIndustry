@@ -13,9 +13,9 @@ name: "CodeQL Advanced"
 
 on:
   push:
-    branches: [ "neoforge/1.21.1" ]
+    branches-ignore:
+      - "*-dev"
   pull_request:
-    branches: [ "neoforge/1.21.1" ]
   schedule:
     - cron: '29 15 * * 6'
 

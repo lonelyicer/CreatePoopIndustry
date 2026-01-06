@@ -108,3 +108,4 @@ jobs:
       uses: github/codeql-action/analyze@v4
       with:
         category: "/language:${{matrix.language}}"
+        java-extract-output: build/classes/kotlin/main

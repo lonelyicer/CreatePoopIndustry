@@ -15,9 +15,9 @@ on:
   push:
     branches:
       - "neoforge/**"
-    branches-ignore:
-      - "*-dev"
   pull_request:
+    branches:
+      - "neoforge/**"
   schedule:
     - cron: '29 15 * * 6'
 

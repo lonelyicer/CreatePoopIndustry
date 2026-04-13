@@ -7,6 +7,7 @@ import com.tterrag.registrate.util.entry.BlockEntry
 import net.minecraft.world.level.block.state.BlockBehaviour
 import win.ringlo.createpoopindustry.content.fluid.fermentation.FermentationTankBlock
 import win.ringlo.createpoopindustry.content.fluid.fermentation.FermentationTankGenerator
+import win.ringlo.createpoopindustry.content.fluid.fermentation.FermentationTankItem
 
 object AllBlocks {
     private val REGISTRATE: CreateRegistrate = CreatePoopIndustry.registrate()
@@ -19,5 +20,7 @@ object AllBlocks {
         }
         .transform(pickaxeOnly())
         .blockstate { ctx, prov -> FermentationTankGenerator().generate(ctx, prov) }
+        .item(::FermentationTankItem)
+        .build()
         .register()
 }

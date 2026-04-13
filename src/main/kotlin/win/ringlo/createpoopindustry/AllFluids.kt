@@ -10,6 +10,7 @@ object AllFluids {
 
     val BIOGAS: FluidEntry<VirtualFluid> = REGISTRATE
         .virtualFluid("biogas")
+        .properties { p -> p.density(-1) }
         .lang("Biogas")
         .tag(AllTags.AllFluidTags.BIOGAS.tag)
         .register()

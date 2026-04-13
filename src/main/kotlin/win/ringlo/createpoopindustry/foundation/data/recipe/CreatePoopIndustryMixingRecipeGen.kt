@@ -14,6 +14,7 @@ class CreatePoopIndustryMixingRecipeGen(
     output: PackOutput, 
     registries: CompletableFuture<HolderLookup.Provider>
 ) : MixingRecipeGen(output, registries, CreatePoopIndustry.MOD_ID) {
+
     val POOP_FLUID = create("poop_fluid") { b -> b.require(Fluids.WATER, 250)
             .require(PSItems.POOP)
             .output(PSFluids.POOP.get(), 250)

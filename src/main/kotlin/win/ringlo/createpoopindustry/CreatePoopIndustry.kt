@@ -1,14 +1,15 @@
 package win.ringlo.createpoopindustry
 
 import com.mojang.logging.LogUtils
+import com.simibubi.create.Create
 import com.simibubi.create.foundation.data.CreateRegistrate
 import com.simibubi.create.foundation.item.ItemDescription
 import com.simibubi.create.foundation.item.KineticStats
 import com.simibubi.create.foundation.item.TooltipModifier
 import net.createmod.catnip.lang.FontHelper
 import net.minecraft.resources.ResourceKey
+import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.CreativeModeTab
-import net.minecraft.world.item.Item
 import net.neoforged.bus.api.EventPriority
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
@@ -21,9 +22,9 @@ import win.ringlo.createpoopindustry.infrastructure.data.CreatePoopIndustryDatag
 class CreatePoopIndustry(modEventBus: IEventBus, modContainer: ModContainer) {
     companion object {
         const val MOD_ID = "createpoopindustry"
-        private val LOGGER: Logger = LogUtils.getLogger()
+        val LOGGER: Logger = LogUtils.getLogger()
         private val REGISTRATE: CreateRegistrate = CreateRegistrate.create(MOD_ID)
-                .defaultCreativeTab(null as ResourceKey<CreativeModeTab?>?)
+                .defaultCreativeTab(null as ResourceKey<CreativeModeTab>?)
                 .setTooltipModifierFactory { item ->
                     ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
                         .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
@@ -55,5 +56,9 @@ class CreatePoopIndustry(modEventBus: IEventBus, modContainer: ModContainer) {
         event.enqueueWork({
             AllOpenPipeEffectHandlers.registerDefaults()
         })
+    }
+
+    fun asResource(path: String): ResourceLocation {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path)
     }
 }

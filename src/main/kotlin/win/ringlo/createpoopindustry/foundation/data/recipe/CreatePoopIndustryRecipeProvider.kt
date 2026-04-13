@@ -18,7 +18,7 @@ class CreatePoopIndustryRecipeProvider(output: PackOutput, registries: Completab
     override fun buildRecipes(recipeOutput: RecipeOutput) {}
 
     companion object {
-        private val GENERATORS = ArrayList<ProcessingRecipeGen<*, *, *>?>()
+        private val GENERATORS = ArrayList<ProcessingRecipeGen<*, *, *>>()
 
         fun registerAllProcessing(
             gen: DataGenerator,
@@ -35,7 +35,7 @@ class CreatePoopIndustryRecipeProvider(output: PackOutput, registries: Completab
                 override fun run(dc: CachedOutput): CompletableFuture<*> {
                     return CompletableFuture.allOf(
                         *GENERATORS.stream()
-                            .map { gen -> gen!!.run(dc) }
+                            .map { gen -> gen.run(dc) }
                             .toArray { size -> arrayOfNulls<CompletableFuture<*>>(size) }
                     )
                 }

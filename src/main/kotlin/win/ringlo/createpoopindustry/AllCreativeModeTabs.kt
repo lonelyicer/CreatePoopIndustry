@@ -20,7 +20,6 @@ object AllCreativeModeTabs {
             .icon(com.simibubi.create.AllItems.WRENCH::asStack)
             .displayItems { _, output ->
                 output.accept(com.simibubi.create.AllItems.WRENCH::get)
-                output.accept(AllItems.FERMENTATION_TANK_CONTROLLER::get)
             }
             .build()
     }

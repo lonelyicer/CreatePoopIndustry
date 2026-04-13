@@ -2,9 +2,11 @@ name: Build
 
 on:
   push:
-    branches-ignore:
-      - "*-dev"
+    branches:
+      - "neoforge/**"
   pull_request:
+    branches:
+      - "neoforge/**"
 
 jobs:
   build:
